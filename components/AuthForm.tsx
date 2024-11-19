@@ -1,3 +1,4 @@
+
 "use client";
 
 import { z } from "zod";
@@ -37,6 +38,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [accountId, setAccountId] = useState(null);
 
+  //! Form setup
   const formSchema = authFormSchema(type);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,6 +48,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
     },
   });
 
+  //! On form submit
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsLoading(true);
     setErrorMessage("");
