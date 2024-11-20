@@ -1,0 +1,1 @@
+appwrite/index.ts -> create user and admin session
